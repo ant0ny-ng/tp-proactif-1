@@ -29,3 +29,5 @@ L'application sert aussi de support à trois challenges, hébergés sur CTFd pen
 - injection de commande sur la page ping (flag dans `flag_ping.txt`).
 
 Les deux fichiers de flags sont créés au démarrage de l'application. Les fiches d'aide données aux joueurs sont dans le dossier `ctf/`.
+
+La résolution de chaque challenge (énoncé, indice et solution) est détaillée dans mon compte rendu du TP.
