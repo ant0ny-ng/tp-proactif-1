@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 WORKDIR /app
 # l'image slim n'a pas la commande ping, utilisee par la page de test
