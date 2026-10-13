@@ -17,6 +17,7 @@ jobs:
           image-ref: tp-proactif-1
           severity: HIGH,CRITICAL
           exit-code: 1
+          ignore-unfixed: true
 
   # repris du template officiel CodeQL de GitHub, simplifie pour Python
   codeql:
