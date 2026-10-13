@@ -1,5 +1,4 @@
-# image de base volontairement ancienne, pour que Trivy ait des failles a trouver
-FROM python:3.6-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 COPY requirements.txt .
