@@ -8,6 +8,12 @@
     <button type="submit">Envoyer</button>
   </form>
   {% if message %}<p>{{ message }}</p>{% endif %}
+  {% if nom %}
+  <form method="post" action="/appliquer">
+    <input type="hidden" name="nom" value="{{ nom }}">
+    <button type="submit">Appliquer la configuration</button>
+  </form>
+  {% endif %}
   <p><a href="/">Accueil</a></p>
 </body>
 </html>

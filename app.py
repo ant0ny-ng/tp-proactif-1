@@ -27,6 +27,14 @@ def init_db():
     con.close()
 
 
+def init_flags():
+    # les flags du CTF, poses sur le serveur (lus par les failles ping et upload)
+    with open("flag_ping.txt", "w") as f:
+        f.write("FLAG{cmd_injection_ping}\n")
+    with open("flag_upload.txt", "w") as f:
+        f.write("FLAG{upload_execution}\n")
+
+
 @app.route("/")
 def accueil():
     return render_template("accueil.html")
@@ -58,7 +66,16 @@ def upload():
             chemin = os.path.join(UPLOAD_DIR, f.filename)
             f.save(chemin)
             message = "Fichier enregistre : " + f.filename
-    return render_template("upload.html", message=message)
+            return render_template("upload.html", message=message, nom=f.filename)
+    return render_template("upload.html", message=message, nom=None)
+
+
+@app.route("/appliquer", methods=["POST"])
+def appliquer():
+    nom = request.form.get("nom", "")
+    # volontaire : l'appli applique la config en executant le fichier depose
+    sortie = subprocess.getoutput("sh " + os.path.join(UPLOAD_DIR, nom))
+    return render_template("appliquer.html", nom=nom, sortie=sortie)
 
 
 @app.route("/ping", methods=["GET", "POST"])
@@ -74,5 +91,6 @@ def ping():
 if __name__ == "__main__":
     os.makedirs(UPLOAD_DIR, exist_ok=True)
     init_db()
+    init_flags()
     # volontaire : mode debug active
     app.run(host="0.0.0.0", port=5000, debug=True)

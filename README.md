@@ -12,3 +12,20 @@ python app.py
 ```
 
 L'application écoute sur le port 5000.
+
+Avec Docker :
+
+```
+docker build -t tp-proactif-1 .
+docker run -d -p 5000:5000 tp-proactif-1
+```
+
+## Mini CTF
+
+L'application sert aussi de support à trois challenges, hébergés sur CTFd pendant le TP :
+
+- injection SQL sur la page de recherche (le flag est dans la table `secret`) ;
+- upload de fichier, avec le bouton « Appliquer la configuration » qui exécute le fichier déposé (flag dans `flag_upload.txt`) ;
+- injection de commande sur la page ping (flag dans `flag_ping.txt`).
+
+Les deux fichiers de flags sont créés au démarrage de l'application. Les fiches d'aide données aux joueurs sont dans le dossier `ctf/`.
