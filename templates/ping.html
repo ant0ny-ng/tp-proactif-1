@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Test d'une machine</title></head>
+<body>
+  <h1>Tester une machine</h1>
+  <form method="post" action="/ping">
+    <input type="text" name="hote" placeholder="192.168.1.10">
+    <button type="submit">Ping</button>
+  </form>
+  {% if sortie %}<pre>{{ sortie }}</pre>{% endif %}
+  <p><a href="/">Accueil</a></p>
+</body>
+</html>

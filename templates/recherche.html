@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Recherche de serveur</title></head>
+<body>
+  <h1>Recherche de serveur</h1>
+  <form method="get" action="/recherche">
+    <input type="text" name="q" value="{{ q }}">
+    <button type="submit">Chercher</button>
+  </form>
+  <ul>
+    {% for nom, ip in lignes %}
+      <li>{{ nom }} - {{ ip }}</li>
+    {% endfor %}
+  </ul>
+  <p><a href="/">Accueil</a></p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Dépôt de fichier</title></head>
+<body>
+  <h1>Dépôt d'un fichier de configuration</h1>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="fichier">
+    <button type="submit">Envoyer</button>
+  </form>
+  {% if message %}<p>{{ message }}</p>{% endif %}
+  <p><a href="/">Accueil</a></p>
+</body>
+</html>
